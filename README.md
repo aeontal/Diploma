@@ -63,7 +63,7 @@
 
  * #### Работа с SUT
 
-       ```
+      ```
       Запуск SUT (PostgreSQL):
       
       java -Dspring.datasource.url=jdbc:postgresql://localhost:5432/app -jar artifacts/aqa-shop.jar
@@ -71,10 +71,10 @@
       Запуск SUT(MySQL): 
 	
       java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -jar artifacts/aqa-shop.jar
-        ```
+      ```
       Запуск тестов осуществить в новом окне терминала:
        
-        ```
+      ```
       Запуск тестов (PostgreSQL):
       
       gradlew test -Ddb.url=jdbc:postgresql://localhost:5432/app
