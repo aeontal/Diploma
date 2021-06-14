@@ -43,4 +43,41 @@
 
 Тест-план представлен в [`файле`](doc/Plan.md).
 
+## II. Автоматизация
 
+* ### Предварительная подготовка к тестированию
+
+   * Скачать проект в виде ZIP-файлом по [ссылке](https://github.com/aeontal/Diploma/archive/refs/heads/master.zip).
+   * Распаковать полученный файл в требуемой директории.
+   * Открыть проект в IntelliJ IDEA.
+      ```
+      File -> Open... -> Выделить папку, в которой лежит файл README.md -> OK
+      ```
+      
+* ### Запуск тестов
+
+   Необходим запуск докер-контейнера при помощи:
+   ```  
+   docker-compose up -d
+   ```
+
+   * #### Работа с SUT
+
+      * Запуск SUT
+        ```
+        **Postgres:**  java -Dspring.datasource.url=jdbc:postgresql://localhost:5432/app -jar artifacts/aqa-shop.jar
+	**MySQL:**     java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -jar artifacts/aqa-shop.jar
+
+        ```
+      * Запуск тестов осуществить в новом окне терминала:
+        ```
+        **Postgres:**  gradlew test -Ddb.url=jdbc:postgresql://localhost:5432/app 
+	**MySQL:**     gradlew test -Ddb.url=jdbc:mysql://localhost:3306/app 
+        ```
+   
+* ### Остановка контейнеров
+
+   Остановка контейнеров осуществляется при помощи:
+   ```  
+   docker-compose down
+   ```
