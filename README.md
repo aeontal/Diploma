@@ -77,11 +77,11 @@
       ```
       Запуск тестов (PostgreSQL):
       
-      gradlew test -Ddb.url=jdbc:postgresql://localhost:5432/app
+      gradlew test -Ddb.url=jdbc:postgresql://localhost:5432/app allureReport
       
       Запуск тестов (MySQL):
       
-      gradlew test -Ddb.url=jdbc:mysql://localhost:3306/app 
+      gradlew test -Ddb.url=jdbc:mysql://localhost:3306/app allureReport 
       
       ```
    

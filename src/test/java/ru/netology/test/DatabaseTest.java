@@ -2,11 +2,15 @@ package ru.netology.test;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import ru.netology.data.DataHelper;
 import ru.netology.page.CreditPage;
 import ru.netology.page.MainApp;
 import ru.netology.page.PurchasePage;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -23,6 +27,10 @@ public class DatabaseTest {
     private final String DECLINED_STATUS = "DECLINED";
     private final int tourAmount = 4500000;
 
+    @BeforeAll
+    static void setUpAll() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+    }
     @BeforeEach
     void setUp() {
         mainApp = new MainApp();
@@ -32,6 +40,11 @@ public class DatabaseTest {
     @AfterEach
     void clearAll() {
         clearDBTables();
+    }
+
+    @AfterAll
+    static void tearDownAll() {
+        SelenideLogger.removeListener("allure");
     }
 
     @Test
